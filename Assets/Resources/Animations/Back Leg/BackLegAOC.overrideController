@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BackLegAOC
+  m_Controller: {fileID: 9100000, guid: 059f2ba41895ff84f8024cf505796518, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: af70d198697ae0f42914ba57f1196fb7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: af3ee1fbb4694f848b7de7f36825e47f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: eda447ae3da17334c898dd31d3ed85f0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 065a7dc3bcda032489b7d7e9fbe1eea8, type: 2}
