@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    public int MovementSpeed = 2;
-    public Animator animator;
+    public float MovementSpeed = 0.005f;
+    public Rigidbody2D rb;
 
     private float magnitude = 0;
+    private Vector2 movement;
 
     void Update()
     {
-        Vector3 Movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        movement.Normalize();
 
-        magnitude = Movement.magnitude;
+        magnitude = movement.magnitude;
+    }
 
-        transform.Translate(Movement.x * Time.deltaTime, Movement.y * Time.deltaTime, 0.0f);
+    void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + movement * MovementSpeed * Time.fixedDeltaTime);
     }
 
     public float GetMagnitude()
