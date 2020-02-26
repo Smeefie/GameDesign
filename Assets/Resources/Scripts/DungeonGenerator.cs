@@ -1,167 +1,136 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Tilemaps;
+﻿using UnityEngine;
+using System.Collections;
+using System;
 
 public class DungeonGenerator : MonoBehaviour
 {
+	[Header("Dungeon Settings")]
+	public int width = 50;
+	public int height = 50;
 
-    [SerializeField]
-    private Tile groundTile;
-    [SerializeField]
-    private Tile pitTile;
-    [SerializeField]
-    private Tile topWallTile;
-    [SerializeField]
-    private Tile botWallTile;
-    [SerializeField]
-    private Tilemap groundMap;
-    [SerializeField]
-    private Tilemap pitMap;
-    [SerializeField]
-    private Tilemap wallMap;
-    [SerializeField]
-    private GameObject player;
-    [SerializeField]
-    private int deviationRate = 10;
-    [SerializeField]
-    private int roomRate = 15;
-    [SerializeField]
-    private int maxRouteLength;
-    [SerializeField]
-    private int maxRoutes = 20;
+	public string seed;
+	public bool useRandomSeed = true;
+
+	[Range(0, 100)]
+	public int randomFillPercent = 42;
+
+	public GameObject wallObj, floorObj;
+
+	int[,] map;
+	Vector2 roomSizeWorldUnits = new Vector2(1, 1);
+	float worldUnitsInOneGridCell = 1;
+
+	void Start()
+	{
+		GenerateMap();
+	}
+
+	void Update()
+	{
+		if (Input.GetMouseButtonDown(0))
+		{
+			GenerateMap();
+		}
+	}
+
+	void GenerateMap()
+	{
+		map = new int[width, height];
+		RandomFillMap();
+
+		for (int i = 0; i < 5; i++)
+		{
+			SmoothMap();
+		}
+
+		if (map != null)
+		{
+			for (float x = 0; x < width * 0.16f; x += 0.16f)
+			{
+				for (float y = 0; y < height * 0.16f; y += 0.16f)
+				{
+					GameObject go = (map[(int)(x / 0.16f), (int)(y / 0.16f)] == 1) ? wallObj : floorObj;
+					Spawn(x, y, go);
+				}
+			}
+		}
+	}
 
 
-    private int routeCount = 0;
+	void RandomFillMap()
+	{
+		if (useRandomSeed)
+		{
+			seed = Time.time.ToString();
+		}
 
-    private void Start()
-    {
-        int x = 0;
-        int y = 0;
-        int routeLength = 0;
-        GenerateSquare(x, y, 1);
-        Vector2Int previousPos = new Vector2Int(x, y);
-        y += 3;
-        GenerateSquare(x, y, 1);
-        NewRoute(x, y, routeLength, previousPos);
+		System.Random pseudoRandom = new System.Random(seed.GetHashCode());
 
-        FillWalls();
-    }
+		for (int x = 0; x < width; x++)
+		{
+			for (int y = 0; y < height; y++)
+			{
+				if (x == 0 || x == width - 1 || y == 0 || y == height - 1)
+				{
+					map[x, y] = 1;
+				}
+				else
+				{
+					map[x, y] = (pseudoRandom.Next(0, 100) < randomFillPercent) ? 1 : 0;
+				}
+			}
+		}
+	}
 
-    private void FillWalls()
-    {
-        BoundsInt bounds = groundMap.cellBounds;
-        for (int xMap = bounds.xMin - 10; xMap <= bounds.xMax + 10; xMap++)
-        {
-            for (int yMap = bounds.yMin - 10; yMap <= bounds.yMax + 10; yMap++)
-            {
-                Vector3Int pos = new Vector3Int(xMap, yMap, 0);
-                Vector3Int posBelow = new Vector3Int(xMap, yMap - 1, 0);
-                Vector3Int posAbove = new Vector3Int(xMap, yMap + 1, 0);
-                TileBase tile = groundMap.GetTile(pos);
-                TileBase tileBelow = groundMap.GetTile(posBelow);
-                TileBase tileAbove = groundMap.GetTile(posAbove);
-                if (tile == null)
-                {
-                    pitMap.SetTile(pos, pitTile);
-                    if (tileBelow != null)
-                    {
-                        wallMap.SetTile(pos, topWallTile);
-                    }
-                    else if (tileAbove != null)
-                    {
-                        wallMap.SetTile(pos, botWallTile);
-                    }
-                }
-            }
-        }
-    }
+	void SmoothMap()
+	{
+		for (int x = 0; x < width; x++)
+		{
+			for (int y = 0; y < height; y++)
+			{
+				int neighbourWallTiles = GetSurroundingWallCount(x, y);
 
-    private void NewRoute(int x, int y, int routeLength, Vector2Int previousPos)
-    {
-        if (routeCount < maxRoutes)
-        {
-            routeCount++;
-            while (++routeLength < maxRouteLength)
-            {
-                //Initialize
-                bool routeUsed = false;
-                int xOffset = x - previousPos.x; //0
-                int yOffset = y - previousPos.y; //3
-                int roomSize = 1; //Hallway size
-                if (Random.Range(1, 100) <= roomRate)
-                    roomSize = Random.Range(3, 6);
-                previousPos = new Vector2Int(x, y);
+				if (neighbourWallTiles > 4)
+					map[x, y] = 1;
+				else if (neighbourWallTiles < 4)
+					map[x, y] = 0;
 
-                //Go Straight
-                if (Random.Range(1, 100) <= deviationRate)
-                {
-                    if (routeUsed)
-                    {
-                        GenerateSquare(previousPos.x + xOffset, previousPos.y + yOffset, roomSize);
-                        NewRoute(previousPos.x + xOffset, previousPos.y + yOffset, Random.Range(routeLength, maxRouteLength), previousPos);
-                    }
-                    else
-                    {
-                        x = previousPos.x + xOffset;
-                        y = previousPos.y + yOffset;
-                        GenerateSquare(x, y, roomSize);
-                        routeUsed = true;
-                    }
-                }
+			}
+		}
+	}
 
-                //Go left
-                if (Random.Range(1, 100) <= deviationRate)
-                {
-                    if (routeUsed)
-                    {
-                        GenerateSquare(previousPos.x - yOffset, previousPos.y + xOffset, roomSize);
-                        NewRoute(previousPos.x - yOffset, previousPos.y + xOffset, Random.Range(routeLength, maxRouteLength), previousPos);
-                    }
-                    else
-                    {
-                        y = previousPos.y + xOffset;
-                        x = previousPos.x - yOffset;
-                        GenerateSquare(x, y, roomSize);
-                        routeUsed = true;
-                    }
-                }
-                //Go right
-                if (Random.Range(1, 100) <= deviationRate)
-                {
-                    if (routeUsed)
-                    {
-                        GenerateSquare(previousPos.x + yOffset, previousPos.y - xOffset, roomSize);
-                        NewRoute(previousPos.x + yOffset, previousPos.y - xOffset, Random.Range(routeLength, maxRouteLength), previousPos);
-                    }
-                    else
-                    {
-                        y = previousPos.y - xOffset;
-                        x = previousPos.x + yOffset;
-                        GenerateSquare(x, y, roomSize);
-                        routeUsed = true;
-                    }
-                }
+	int GetSurroundingWallCount(int gridX, int gridY)
+	{
+		int wallCount = 0;
+		for (int neighbourX = gridX - 1; neighbourX <= gridX + 1; neighbourX++)
+		{
+			for (int neighbourY = gridY - 1; neighbourY <= gridY + 1; neighbourY++)
+			{
+				if (neighbourX >= 0 && neighbourX < width && neighbourY >= 0 && neighbourY < height)
+				{
+					if (neighbourX != gridX || neighbourY != gridY)
+					{
+						wallCount += map[neighbourX, neighbourY];
+					}
+				}
+				else
+				{
+					wallCount++;
+				}
+			}
+		}
 
-                if (!routeUsed)
-                {
-                    x = previousPos.x + xOffset;
-                    y = previousPos.y + yOffset;
-                    GenerateSquare(x, y, roomSize);
-                }
-            }
-        }
-    }
+		return wallCount;
+	}
 
-    private void GenerateSquare(int x, int y, int radius)
-    {
-        for (int tileX = x - radius; tileX <= x + radius; tileX++)
-        {
-            for (int tileY = y - radius; tileY <= y + radius; tileY++)
-            {
-                Vector3Int tilePos = new Vector3Int(tileX, tileY, 0);
-                groundMap.SetTile(tilePos, groundTile);
-            }
-        }
-    }
+	void Spawn(float x, float y, GameObject toSpawn)
+	{
+		//find the position to spawn
+		Vector2 offset = roomSizeWorldUnits / 2.0f;
+		Vector2 spawnPos = new Vector2(x, y) * worldUnitsInOneGridCell - offset;
+
+		//spawn object
+		Instantiate(toSpawn, spawnPos, Quaternion.identity);
+	}
+
 }
