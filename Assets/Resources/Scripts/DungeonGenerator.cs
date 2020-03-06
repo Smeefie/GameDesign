@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.Tilemaps;
 
 public class DungeonGenerator : MonoBehaviour
 {
@@ -14,18 +15,23 @@ public class DungeonGenerator : MonoBehaviour
 	[Range(0, 100)]
 	public int randomFillPercent = 42;
 
-	public GameObject wallObj, floorObj;
+	[Header("Dungeon Tiles")]
+	public Tilemap FloorTilemap;
+	public Tilemap WallTilemap;
+	public TileBase FloorTile;
+	public TileBase WallTile;
 
-	int[,] map;
-	Vector2 roomSizeWorldUnits = new Vector2(1, 1);
-	float worldUnitsInOneGridCell = 1;
+	private int[,] map;
+	private Vector2 roomSizeWorldUnits;
+	private float worldUnitsInOneGridCell = 1;
 
-	void Start()
+	private void Start()
 	{
+		roomSizeWorldUnits = new Vector2(width / 2, height / 2);
 		GenerateMap();
 	}
 
-	void Update()
+	private void Update()
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
@@ -33,31 +39,44 @@ public class DungeonGenerator : MonoBehaviour
 		}
 	}
 
-	void GenerateMap()
+	private void DeleteMap()
 	{
+		FloorTilemap.ClearAllTiles();
+		WallTilemap.ClearAllTiles();
+	}
+
+	private void GenerateMap()
+	{
+		DeleteMap();
+
 		map = new int[width, height];
 		RandomFillMap();
 
 		for (int i = 0; i < 5; i++)
 		{
-			SmoothMap();
+			ApplyCellular();
 		}
 
 		if (map != null)
 		{
-			for (float x = 0; x < width * 0.16f; x += 0.16f)
+			for (int x = 0; x < width; x++)
 			{
-				for (float y = 0; y < height * 0.16f; y += 0.16f)
+				for (int y = 0; y < height; y++)
 				{
-					GameObject go = (map[(int)(x / 0.16f), (int)(y / 0.16f)] == 1) ? wallObj : floorObj;
-					Spawn(x, y, go);
+					if(map[x, y] == 1)
+					{
+						CreateTile(x, y, WallTilemap, WallTile);
+					}
+					else
+					{
+						CreateTile(x, y, FloorTilemap, FloorTile);
+					}
 				}
 			}
 		}
 	}
 
-
-	void RandomFillMap()
+	private void RandomFillMap()
 	{
 		if (useRandomSeed)
 		{
@@ -82,7 +101,7 @@ public class DungeonGenerator : MonoBehaviour
 		}
 	}
 
-	void SmoothMap()
+	private void ApplyCellular()
 	{
 		for (int x = 0; x < width; x++)
 		{
@@ -91,15 +110,19 @@ public class DungeonGenerator : MonoBehaviour
 				int neighbourWallTiles = GetSurroundingWallCount(x, y);
 
 				if (neighbourWallTiles > 4)
+				{
 					map[x, y] = 1;
-				else if (neighbourWallTiles < 4)
-					map[x, y] = 0;
+				}
 
+				else if (neighbourWallTiles < 4)
+				{
+					map[x, y] = 0;
+				}
 			}
 		}
 	}
 
-	int GetSurroundingWallCount(int gridX, int gridY)
+	private int GetSurroundingWallCount(int gridX, int gridY)
 	{
 		int wallCount = 0;
 		for (int neighbourX = gridX - 1; neighbourX <= gridX + 1; neighbourX++)
@@ -123,14 +146,10 @@ public class DungeonGenerator : MonoBehaviour
 		return wallCount;
 	}
 
-	void Spawn(float x, float y, GameObject toSpawn)
+	private void CreateTile(float x, float y, Tilemap toMap, TileBase toSpawn)
 	{
-		//find the position to spawn
-		Vector2 offset = roomSizeWorldUnits / 2.0f;
-		Vector2 spawnPos = new Vector2(x, y) * worldUnitsInOneGridCell - offset;
+		Vector2 spawnPos = new Vector2(x, y) * worldUnitsInOneGridCell - (roomSizeWorldUnits / 2.0f);
 
-		//spawn object
-		Instantiate(toSpawn, spawnPos, Quaternion.identity);
+		toMap.SetTile(new Vector3Int((int)spawnPos.x, (int)spawnPos.y, 0), toSpawn);
 	}
-
 }
