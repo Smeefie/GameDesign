@@ -30,9 +30,8 @@ public class Health : MonoBehaviour
     public event Action<float> OnChangeHealth;
     public void ChangeHealth(float amount)
     {
-        CurrentHealth -= amount;
+        CurrentHealth += amount;
 
-        //INVOKE LISTENERS
-        OnChangeHealth?.Invoke(CurrentHealth - amount);
+        OnChangeHealth?.Invoke(CurrentHealth + amount);
     }
 }
