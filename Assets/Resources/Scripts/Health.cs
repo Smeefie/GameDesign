@@ -10,13 +10,10 @@ public class Health : MonoBehaviour
     public BaseStats baseStats;
     private float CurrentHealth;
 
-    public static Health current;
-
     void Start()
     {
-        current = this;
         baseStats = GetComponent<BaseStats>();
-        CurrentHealth = baseStats.Health;
+        ChangeHealth(baseStats.Health);
     }
 
     private void Update()

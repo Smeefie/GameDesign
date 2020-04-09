@@ -3,16 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+[RequireComponent(typeof(Slider))]
 public class HealthBarController : MonoBehaviour
 {
     public Slider slider;
     public BaseStats baseStats;
+    public Health health;
 
     void Start()
     {
         SetMaxHealth(baseStats.Health);
-        Health.current.OnChangeHealth += SetHealth;
+        health.OnChangeHealth += SetHealth;
     }
 
     public void SetMaxHealth(float amount)
