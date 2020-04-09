@@ -6,6 +6,7 @@ using UnityEngine;
 public class Teleport : Cheat
 {
     public Transform Player;
+    public KeyCode KeyCode;
 
     protected override void Action()
     {
@@ -14,7 +15,7 @@ public class Teleport : Cheat
 
     protected override bool Condition()
     {
-        return Input.GetKeyDown(KeyCode.Q);
+        return Input.GetKeyDown(KeyCode);
     }
 
     protected override string GetName()
