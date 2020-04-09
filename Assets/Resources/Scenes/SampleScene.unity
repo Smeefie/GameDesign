@@ -428,7 +428,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &755961038 stripped
 Transform:
@@ -660,7 +660,7 @@ Transform:
   - {fileID: 7712197293292963699}
   - {fileID: 178885289}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1298491517
 GameObject:
@@ -711,7 +711,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1298491520
 MonoBehaviour:
@@ -729,6 +729,36 @@ MonoBehaviour:
   VerticalRooms: 1
   RoomWidth: 50
   RoomHeight: 50
+--- !u!1 &1366541839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1366541840}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1366541840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366541839}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.3135836, y: -0.048065804, z: -1.909867}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1954952188
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +825,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2054069828 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4292681646856261366, guid: 5eeee2f9ff7918a4099b9a07ae4519d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4292681647477473826}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cd6b528409c3b429e1e29e966e4785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!483693784 &1521656219044781086
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -887,7 +929,7 @@ PrefabInstance:
     - target: {fileID: 4292681646856261356, guid: 5eeee2f9ff7918a4099b9a07ae4519d6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4292681646856261356, guid: 5eeee2f9ff7918a4099b9a07ae4519d6,
         type: 3}
@@ -909,6 +951,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4292681646856261366, guid: 5eeee2f9ff7918a4099b9a07ae4519d6,
+        type: 3}
+      propertyPath: CurrentHealth
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eeee2f9ff7918a4099b9a07ae4519d6, type: 3}
 --- !u!1001 &4893955990223509431
@@ -918,6 +965,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1358552787, guid: d3fda3b72c2f77f45a317fb873bd56bb, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 2054069828}
     - target: {fileID: 4893955990159993347, guid: d3fda3b72c2f77f45a317fb873bd56bb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -992,6 +1043,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1613247607, guid: 1050c600ffb579c499a56aad5f08eb68, type: 3}
+      propertyPath: EnemyFolder
+      value: 
+      objectReference: {fileID: 1366541839}
+    - target: {fileID: 6049111128875978571, guid: 1050c600ffb579c499a56aad5f08eb68,
+        type: 3}
+      propertyPath: baseStats
+      value: 
+      objectReference: {fileID: 755961047}
+    - target: {fileID: 6049111128875978571, guid: 1050c600ffb579c499a56aad5f08eb68,
+        type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 2054069828}
+    - target: {fileID: 6049111129097965568, guid: 1050c600ffb579c499a56aad5f08eb68,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 6806818625165537812, guid: 1050c600ffb579c499a56aad5f08eb68,
         type: 3}
       propertyPath: m_Camera

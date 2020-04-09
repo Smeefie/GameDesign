@@ -14,6 +14,5 @@ public class FollowPlayer : MonoBehaviour
         Vector3 targetPosition = player.position + offset;
         Vector3 CameraPosition = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * transitionSpeed);
         transform.position = CameraPosition;
-
     }
 }
