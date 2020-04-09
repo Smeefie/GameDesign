@@ -32,6 +32,6 @@ public class Health : MonoBehaviour
     {
         CurrentHealth += amount;
 
-        OnChangeHealth?.Invoke(CurrentHealth + amount);
+        OnChangeHealth?.Invoke(CurrentHealth);
     }
 }

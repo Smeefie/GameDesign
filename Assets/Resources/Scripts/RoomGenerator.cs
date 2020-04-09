@@ -30,17 +30,12 @@ public class RoomGenerator : MonoBehaviour
 	private int[,] map;
 	private float worldUnitsInOneGridCell = 1;
 	private int borderThickness = 2;
+	private System.Random rand = new System.Random();
 
-	public void DeleteMap()
+	public void GenerateRoom(int xOffset, int yOffset, int width, int height)
 	{
-		FloorTilemap.ClearAllTiles();
-		WallTilemap.ClearAllTiles();
-	}
-
-	public void GenerateRoom(int xOffset, int yOffset, int widht, int height)
-	{
-		Vector3Int position = new Vector3Int((int)xOffset, (int)yOffset, 0);
-		Vector3Int scale = new Vector3Int((int)widht, (int)height, 0);
+		Vector3Int position = new Vector3Int(xOffset, yOffset, 0);
+		Vector3Int scale = new Vector3Int(width, height, 0);
 
 		//DeleteMap();
 
@@ -58,7 +53,7 @@ public class RoomGenerator : MonoBehaviour
 			{
 				for (int y = 0; y < scale.y; y++)
 				{
-					if(map[x, y] == 0)
+					if (map[x, y] == 0)
 					{
 						CreateTile(x + position.x, y + position.y, WallTilemap, WallTile);
 					}
@@ -69,13 +64,40 @@ public class RoomGenerator : MonoBehaviour
 				}
 			}
 		}
+
+		RemoveCorners(xOffset, yOffset, width, height);
+	}
+
+	private void RemoveCorners(int xOffset, int yOffset, int width, int height)
+	{
+		var pos = new Vector3Int(xOffset, yOffset, 0);
+		FloorTilemap.SetTile(pos, null);
+		WallTilemap.SetTile(pos, WallTile);
+		
+		pos = new Vector3Int(xOffset + width - 1, yOffset, 0);
+		FloorTilemap.SetTile(pos, null);
+		WallTilemap.SetTile(pos, WallTile);
+		
+		pos = new Vector3Int(xOffset, yOffset + height - 1, 0);
+		FloorTilemap.SetTile(pos, null);
+		WallTilemap.SetTile(pos, WallTile);
+		
+		pos = new Vector3Int(xOffset + width - 1, yOffset + height - 1, 0);
+		FloorTilemap.SetTile(pos, null);
+		WallTilemap.SetTile(pos, WallTile);
+	}
+
+	public void DeleteMap()
+	{
+		FloorTilemap.ClearAllTiles();
+		WallTilemap.ClearAllTiles();
 	}
 
 	private void RandomFillMap(Vector3Int scale)
 	{
 		if (useRandomSeed)
 		{
-			seed = Time.time.ToString();
+			seed = rand.Next(0, 2000).ToString();
 		}
 
 		System.Random pseudoRandom = new System.Random(seed.GetHashCode());
