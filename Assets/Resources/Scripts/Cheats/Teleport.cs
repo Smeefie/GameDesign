@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Teleport : Cheat
 {
-    public Transform Player;
-    public KeyCode KeyCode;
+    [SerializeField] private Transform Player;
+    [SerializeField] private KeyCode KeyCode;
 
     protected override void Action()
     {
