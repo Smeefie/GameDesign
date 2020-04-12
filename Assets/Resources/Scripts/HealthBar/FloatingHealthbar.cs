@@ -18,11 +18,6 @@ public class FloatingHealthbar : Healthbar
         return ToFollow.gameObject.GetComponent<Health>();
     }
 
-    protected override Text getHealthDisplayText()
-    {
-        return gameObject.GetComponentInChildren<Text>();
-    }
-
     protected override Slider getSlider()
     {
         return gameObject.GetComponent<Slider>();

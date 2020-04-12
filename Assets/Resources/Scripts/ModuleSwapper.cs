@@ -8,7 +8,7 @@ public class ModuleSwapper : MonoBehaviour
     private PlayerRenderer playerRenderer;
 
     public GameObject Module;
-    public string prefix = "Default";
+    public string prefix = "DefaultClass";
 
     void Start()
     {

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReduceHealth : Cheat
+public class IncreaseHealth : Cheat
 {
     [SerializeField] private Health health;
     [SerializeField] private KeyCode KeyCode;
     [SerializeField] private float amount;
     protected override void Action()
     {
-        health.ReduceHealth(amount);
+        health.IncreaseHealth(amount);
     }
 
     protected override bool Condition()
@@ -19,6 +19,6 @@ public class ReduceHealth : Cheat
 
     protected override string GetName()
     {
-        return "Reduce health";
+        return "Increase health";
     }
 }

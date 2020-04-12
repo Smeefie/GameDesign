@@ -1,19 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//[RequireComponent(typeof(Text))] Write custom to do this for child-components
 public abstract class Healthbar : MonoBehaviour
 {
     protected float _maxHealth;
-   
+    protected float _currentHealth;
+    [NonSerialized] protected Slider slider;
+    [NonSerialized] protected Health health;
+    [NonSerialized] protected BaseStats baseStats;
+
     void Start()
     {
-        SetMaxHealth(getBaseStats().Health);
-        var health = getHealth();
+        slider = getSlider();
+        health = getHealth();
+        baseStats = getBaseStats();
+        SetMaxHealth(baseStats.Health);
         SetSlider(health.CurrentHealth);
-        UpdateDisplayText();
         health.OnChangeHealth += SetHealth;
     }
 
@@ -21,27 +26,22 @@ public abstract class Healthbar : MonoBehaviour
     public void SetMaxHealth(float amount)
     {
         _maxHealth = amount;
-        getSlider().maxValue = amount;
+        _currentHealth = _maxHealth; //To have it have a value when first used
+        slider.maxValue = amount;
     }
 
     public void SetHealth(float amount)
     {
         SetSlider(amount);
-        UpdateDisplayText();
     }
 
-    protected void SetSlider(float amount)
+    protected virtual void SetSlider(float amount)
     {
-        getSlider().value = amount;
-    }
-
-    protected void UpdateDisplayText()
-    {
-        getHealthDisplayText().text = $"{getHealth().CurrentHealth}/{_maxHealth}";
+        slider.value = amount;
+        _currentHealth = amount;
     }
 
     protected abstract Health getHealth();
     protected abstract BaseStats getBaseStats();
     protected abstract Slider getSlider();
-    protected abstract Text getHealthDisplayText();
 }

@@ -8,7 +8,7 @@ public abstract class Cheat : MonoBehaviour
 
     void Update()
     {
-        if (enabled && Condition())
+        if (Enabled && Condition())
         {
             Debug.Log("The cheat " + GetName() + " has been pressed.");
             Action();

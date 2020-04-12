@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4893955990159993347}
   - component: {fileID: 4893955990159993348}
   - component: {fileID: 1358552787}
+  - component: {fileID: 1583672769}
   m_Layer: 0
   m_Name: Cheats
   m_TagString: Untagged
@@ -62,3 +63,20 @@ MonoBehaviour:
   Enabled: 0
   health: {fileID: 0}
   KeyCode: 104
+  amount: 10
+--- !u!114 &1583672769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4893955990159993349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b097d7c607c4e043a46fda8cb0f2116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enabled: 0
+  health: {fileID: 0}
+  KeyCode: 103
+  amount: 10

@@ -1046,7 +1046,7 @@ PrefabInstance:
     - target: {fileID: 1613247607, guid: 1050c600ffb579c499a56aad5f08eb68, type: 3}
       propertyPath: EnemyFolder
       value: 
-      objectReference: {fileID: 1366541839}
+      objectReference: {fileID: 1366541840}
     - target: {fileID: 6049111128875978571, guid: 1050c600ffb579c499a56aad5f08eb68,
         type: 3}
       propertyPath: baseStats
@@ -1062,6 +1062,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 6049111129940094813, guid: 1050c600ffb579c499a56aad5f08eb68,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049111129940094813, guid: 1050c600ffb579c499a56aad5f08eb68,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6806818625165537812, guid: 1050c600ffb579c499a56aad5f08eb68,
         type: 3}
       propertyPath: m_Camera

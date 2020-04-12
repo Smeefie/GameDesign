@@ -11,16 +11,16 @@ public class PlayerRenderer : MonoBehaviour
     [Header("Animation")]
     public Animator Animator;
 
-    private MovementController movementController;
+    private PlayerMovementController playerMovementController;
 
     void Start()
     {
-        movementController = GetComponent<MovementController>();
+        playerMovementController = GetComponent<PlayerMovementController>();
     }
 
     void Update()
     {
-        if(movementController.GetMagnitude() != 0)
+        if(playerMovementController.GetMagnitude() != 0)
         {
             foreach (var module in ModularSprites)
             {
