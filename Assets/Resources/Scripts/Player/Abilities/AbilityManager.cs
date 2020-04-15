@@ -25,7 +25,7 @@ public class AbilityManager : MonoBehaviour
                 var ability = GetAbilityByKeycode(keycode);
                 if (IsOffCooldown(ability))
                 {
-                    if (ability.Cost())
+                    if (ability.cost.Pay(gameObject))
                     {
                         PlayAbility(ability);
                         StartCoroutine(InternalCD());
@@ -42,7 +42,7 @@ public class AbilityManager : MonoBehaviour
         onInternalCD = false;
     }
 
-    void AddAbility(KeyCode keyCode, Ability ability)
+    public void AddAbility(KeyCode keyCode, Ability ability)
     {
 
         OverrideKeycode(keyCode);

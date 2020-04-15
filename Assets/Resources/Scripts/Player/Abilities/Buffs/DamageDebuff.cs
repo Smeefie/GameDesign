@@ -11,12 +11,14 @@ namespace Assets.Resources.Scripts.Player.Abilities.Buffs
     #if UNITY_EDITOR
     using UnityEditor;
     using UnityEditor.UIElements;
-    #endif
+#endif
 
     public class DamageDebuff : Debuff
     {
         public float DamageDealt;
         public float Delay;
+
+        //floats can be integers?
 
         [HideInInspector] public bool DamageOverTime;
         [HideInInspector] public float Interval;

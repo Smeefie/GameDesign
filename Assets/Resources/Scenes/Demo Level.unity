@@ -4495,7 +4495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentHealth: 999
-  Immortal: 1
+  Immortal: 0
 --- !u!114 &877416752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4508,7 +4508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0ad72209ad632438c6f32cddd7fea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 80
+  Health: 999
   MovementSpeed: 1
 --- !u!114 &877416753
 MonoBehaviour:
@@ -4605,12 +4605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca15973f70c6bb46a716d9af1cf5079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilities:
-  - keycode: 113
-    ability: {fileID: 1190375137}
-  - keycode: 101
-    ability: {fileID: 1190375138}
-  internalCDDuration: 0
+  abilities: []
+  internalCDDuration: 1
 --- !u!114 &1190375137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4620,31 +4616,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1190375135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44fddf68928213d4ab9e739bd0e01221, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c621ec41875445438acc4d7463bcfec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Log text
-  sharedCD:
-  - Debug
-  baseCooldown: 3
-  Text: '"Text has been logged"'
---- !u!114 &1190375138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190375135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44fddf68928213d4ab9e739bd0e01221, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Log text again
-  sharedCD:
-  - Debug
-  baseCooldown: 5
-  Text: '"Second text has been logged"'
+  Name: 
+  Description: 
+  sharedCD: []
+  baseCooldown: 0
+  TestTarget: {fileID: 0}
+  HealthCost: 0
+  DamageDealt: 0
+  Delay: 0
+  DamageOverTime: 0
+  Interval: 1
+  ApplyEveryNSeconds: 0
 --- !u!1 &1954952188
 GameObject:
   m_ObjectHideFlags: 0
@@ -4765,6 +4750,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1911321206, guid: 5eeee2f9ff7918a4099b9a07ae4519d6, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 877416751}
     - target: {fileID: 4292681646856261356, guid: 5eeee2f9ff7918a4099b9a07ae4519d6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4850,10 +4839,18 @@ PrefabInstance:
       propertyPath: health
       value: 
       objectReference: {fileID: 4292681647477473827}
+    - target: {fileID: 1358552787, guid: d3fda3b72c2f77f45a317fb873bd56bb, type: 3}
+      propertyPath: Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1583672769, guid: d3fda3b72c2f77f45a317fb873bd56bb, type: 3}
       propertyPath: health
       value: 
       objectReference: {fileID: 4292681647477473827}
+    - target: {fileID: 1583672769, guid: d3fda3b72c2f77f45a317fb873bd56bb, type: 3}
+      propertyPath: Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4893955990159993347, guid: d3fda3b72c2f77f45a317fb873bd56bb,
         type: 3}
       propertyPath: m_LocalPosition.x

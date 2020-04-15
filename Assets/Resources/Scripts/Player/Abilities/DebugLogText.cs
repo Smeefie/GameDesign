@@ -7,11 +7,6 @@ public class DebugLogText : Ability
 {
     public string Text;
 
-    public override bool Cost()
-    {
-        return true;
-    }
-
     public override void PlayAbility()
     {
         Debug.Log(Text);
