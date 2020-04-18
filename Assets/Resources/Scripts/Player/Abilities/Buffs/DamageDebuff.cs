@@ -5,63 +5,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using Assets.Resources.Scripts.Player.Abilities.Buffs.ScriptableObjects;
 
 namespace Assets.Resources.Scripts.Player.Abilities.Buffs
 {
-    #if UNITY_EDITOR
-    using UnityEditor;
-    using UnityEditor.UIElements;
-#endif
-
+    [Serializable]
     public class DamageDebuff : Debuff
     {
-        public float DamageDealt;
-        public float Delay;
-
-        //floats can be integers?
-
-        [HideInInspector] public bool DamageOverTime;
-        [HideInInspector] public float Interval;
-        [HideInInspector] public float ApplyEveryNSeconds;
+        private Ability origin;
+        public DamageNumbers damage;
+        public DamageCategory category;
+        public DamageType damagetype;
 
         private int appliedTimes = 0;
 
         protected override IEnumerator Effect()
         {
-            yield return new WaitForSeconds(Delay);
+            var stats = Owner.GetComponent<StatisticManager>();
+            yield return new WaitForSeconds(damage.Delay);
 
-            if (!DamageOverTime) Interval = 1;
+            if (!damage.DamageOverTime) damage.Interval = 1;
 
-            while (appliedTimes < Interval)
+            while (appliedTimes < damage.Interval)
             {
-                gameObject.GetComponent<Health>().ReduceHealth(DamageDealt);
-                yield return new WaitForSeconds(ApplyEveryNSeconds);
+                gameObject.GetComponent<Health>().ReduceHealth(damage.DamageDealt);
+                yield return new WaitForSeconds(damage.ApplyEveryNSeconds);
                 appliedTimes++;
+            }
+
+            var death = GetComponent<Death>();
+            if (death.isDead)
+            {
+                logKill(stats);
             }
 
             Destroy(this);
         }
-    }
 
-#if UNITY_EDITOR
-    [CustomEditor(typeof(DamageDebuff))]
-    public class DamageDebuff_Editor : Editor
-    {
-        public override void OnInspectorGUI()
+        void logKill(StatisticManager stats)
         {
-            DrawDefaultInspector();
-
-            DamageDebuff script = (DamageDebuff)target;
-
-            script.DamageOverTime = EditorGUILayout.Toggle("Damage over time", script.DamageOverTime);
-            if (script.DamageOverTime)
-            {
-                script.Interval =
-                    EditorGUILayout.FloatField("Interval", script.Interval);
-                script.ApplyEveryNSeconds =
-                    EditorGUILayout.FloatField("Deal damage every N seconds", script.ApplyEveryNSeconds);
-            }
+            var death = GetComponent<Death>();
+            death.AwardKill(stats);
+            stats.abilityData.Find(i => i.ability.Name == origin.Name).killed++;
         }
     }
-#endif
 }

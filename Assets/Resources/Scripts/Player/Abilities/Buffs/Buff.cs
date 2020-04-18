@@ -10,6 +10,8 @@ namespace Assets.Resources.Scripts.Player.Abilities.Buffs
 {
     public abstract class Buff : MonoBehaviour
     {
+        //TODO: Add animation to play on target
+        public GameObject Owner;
         void Start()
         {
             StartCoroutine(Effect());

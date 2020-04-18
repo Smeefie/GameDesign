@@ -7,15 +7,16 @@ using UnityEngine.UI;
 public class FloatingHealthbar : Healthbar
 {
     public Transform ToFollow;
-    [SerializeField] private Vector3 offset = new Vector3(0, 0.2f, 0);
+    public float transitionSpeed = 1f;
+    [SerializeField] private Vector3 offset = new Vector3(0, 0.1f, 0);
     protected override BaseStats getBaseStats()
     {
-        return ToFollow.gameObject.GetComponent<BaseStats>();
+        return GetComponentInParent<Canvas>().GetComponentInParent<BaseStats>();
     }
 
     protected override Health getHealth()
     {
-        return ToFollow.gameObject.GetComponent<Health>();
+        return GetComponentInParent<Canvas>().GetComponentInParent<Health>();
     }
 
     protected override Slider getSlider()
@@ -25,6 +26,9 @@ public class FloatingHealthbar : Healthbar
 
     void Update()
     {
-        gameObject.transform.position = ToFollow.gameObject.transform.position + offset;
+        transform.position = ToFollow.position + offset;
+        //Vector3 targetPosition = ToFollow.position + offset;
+        //Vector3 Position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * transitionSpeed);
+        //transform.position = Position;
     }
 }

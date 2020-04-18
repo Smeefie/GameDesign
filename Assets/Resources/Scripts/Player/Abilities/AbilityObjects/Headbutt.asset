@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c621ec41875445438acc4d7463bcfec, type: 3}
+  m_Name: Headbutt
+  m_EditorClassIdentifier: 
+  Name: Headbutt
+  Description: Headbutt enemy, deals melee damage.
+  cost: {fileID: 11400000, guid: 0098e61a3db9d07439d8a319e32d7ae7, type: 2}
+  sharedCD:
+  - Headbutt
+  baseCooldown: 1
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  DamageDealt: 50
+  DoT: {fileID: 11400000, guid: 73b03c18e885d2842bd4c3fba6a336d0, type: 2}
+  AttackRange: 0.2
+  height: 0.1

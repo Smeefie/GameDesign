@@ -7,8 +7,8 @@ public class DebugLogText : Ability
 {
     public string Text;
 
-    public override void PlayAbility()
+    public override void PlayAbility(Transform user)
     {
-        Debug.Log(Text);
+        Debug.Log($"{user.gameObject.name} said {Text}");
     }
 }

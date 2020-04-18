@@ -18,15 +18,15 @@ public class Health : MonoBehaviour
     }
 
     public event Action<float> OnChangeHealth;
+    public event Action OnHealthZero;
     public void ReduceHealth(float amount)
     {
-        if (Immortal) return;
         CurrentHealth -= amount;
 
         if (CurrentHealth <= 0)
         {
             CurrentHealth = 0;
-            //Todo death here
+            if(!Immortal) OnHealthZero?.Invoke();
         }
 
         OnChangeHealth?.Invoke(CurrentHealth);

@@ -27,6 +27,7 @@ public class AbilityManager : MonoBehaviour
                 {
                     if (ability.cost.Pay(gameObject))
                     {
+                        logCast(ability);
                         PlayAbility(ability);
                         StartCoroutine(InternalCD());
                     }
@@ -92,7 +93,7 @@ public class AbilityManager : MonoBehaviour
     {
         var cooldown = gameObject.AddComponent<Cooldown>();
         cooldown.ability = ability;
-        ability.PlayAbility();
+        ability.PlayAbility(gameObject.transform);
     }
 
     bool IsOffCooldown(Ability ability)
@@ -108,5 +109,12 @@ public class AbilityManager : MonoBehaviour
     Ability GetAbilityByKeycode(KeyCode keycode)
     {
         return abilities.Single(i => i.keycode == keycode).ability;
+    }
+
+    protected void logCast(Ability abil)
+    {
+        var stats = gameObject.GetComponent<StatisticManager>();
+        if (!stats.abilityData.Exists(i => i.ability.Name == abil.Name)) stats.abilityData.Add(new AbilityDataModel() { ability = abil });
+        stats.abilityData.Find(i => i.ability.Name == abil.Name).used++;
     }
 }
