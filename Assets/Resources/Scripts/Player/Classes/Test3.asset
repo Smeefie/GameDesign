@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 559f2bdc4557cad46bf00903b8c54555, type: 3}
-  m_Name: Default class
+  m_Name: Test3
   m_EditorClassIdentifier: 
-  name: Default
-  description: The default class, just some placeholder text while we think up something
-    better.
-  requirement: {fileID: 11400000, guid: 6c7afdacd455dbb4aa02d92be0b02709, type: 2}
-  activeAbilities:
-  - {fileID: 11400000, guid: 19121725da8c5044c93a1acdbae11b08, type: 2}
+  name: Test3
+  description: Test class
+  requirement: {fileID: 11400000, guid: 7daa5846d23a06841adc8b812bdec487, type: 2}
+  activeAbilities: []
   PassiveAbilities: []

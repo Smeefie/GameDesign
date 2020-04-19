@@ -9,6 +9,7 @@ public class StatisticManager : MonoBehaviour
     void Start()
     {
         runtimeStats.Clear();
+        abilityData = new List<AbilityDataModel>();
     }
     public List<AbilityDataModel> abilityData;
     public runtimeStatistics runtimeStats;

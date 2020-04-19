@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c621ec41875445438acc4d7463bcfec, type: 3}
   m_Name: Headbutt
   m_EditorClassIdentifier: 
+  unlockRequirement: {fileID: 11400000, guid: 6c7afdacd455dbb4aa02d92be0b02709, type: 2}
   Name: Headbutt
   Description: Headbutt enemy, deals melee damage.
   cost: {fileID: 11400000, guid: 0098e61a3db9d07439d8a319e32d7ae7, type: 2}
   sharedCD:
   - Headbutt
   baseCooldown: 1
+  type: 0
+  category: 0
   enemyLayers:
     serializedVersion: 2
     m_Bits: 512

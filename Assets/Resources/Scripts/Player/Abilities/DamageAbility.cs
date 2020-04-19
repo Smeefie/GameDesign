@@ -33,7 +33,6 @@ namespace Assets.Resources.Scripts.Player.Abilities
             foreach (var enemy in hitEnemies)
             {
                 var health = enemy.gameObject.GetComponent<Health>();
-                Debug.Log("Hit " + enemy.name);
                 health.ReduceHealth(DamageDealt);
                 var dot = enemy.gameObject.AddComponent<DamageDebuff>();
                 dot.Owner = user.gameObject;
