@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c621ec41875445438acc4d7463bcfec, type: 3}
-  m_Name: Headbutt
+  m_Name: Swipe
   m_EditorClassIdentifier: 
-  unlockRequirement: {fileID: 11400000, guid: 6c7afdacd455dbb4aa02d92be0b02709, type: 2}
-  Name: Headbutt
-  Description: Headbutt enemy, deals melee damage.
+  unlockRequirement: {fileID: 11400000, guid: 9621161052ea805478d5e8779e84530b, type: 2}
+  Name: Swipe
+  Description: Swipe enemies in front of you.
   cost: {fileID: 11400000, guid: 0098e61a3db9d07439d8a319e32d7ae7, type: 2}
   sharedCD:
-  - Headbutt
-  baseCooldown: 2
-  type: 0
+  - Swipe
+  baseCooldown: 3
+  type: 3
   category: 0
   enemyLayers:
     serializedVersion: 2
     m_Bits: 512
   DamageDealt: 50
-  DoT: {fileID: 11400000, guid: 73b03c18e885d2842bd4c3fba6a336d0, type: 2}
+  DoT: {fileID: 11400000, guid: d495a8e8ffc124b4b886e1e13f65ebb9, type: 2}
   AttackRange: 0.2
-  height: 0.1
+  height: 0.2

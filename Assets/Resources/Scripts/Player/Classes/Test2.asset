@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Test2
   description: Test class
-  requirement: {fileID: 11400000, guid: 6c7afdacd455dbb4aa02d92be0b02709, type: 2}
+  requirement: {fileID: 11400000, guid: 9a22d58c8fa6c034fadfe57efb05c74b, type: 2}
   activeAbilities:
   - {fileID: 11400000, guid: 19121725da8c5044c93a1acdbae11b08, type: 2}
   PassiveAbilities: []

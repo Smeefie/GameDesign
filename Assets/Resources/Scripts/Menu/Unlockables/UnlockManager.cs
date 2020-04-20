@@ -13,6 +13,23 @@ namespace Assets.Resources.Scripts.Menu.Unlockables
 
         void Start()
         {
+            getUnlockedAbilities();
+        }
+
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.X)) Debug.Log(unlockedAbilitiesToString());
+        }
+
+        string unlockedAbilitiesToString()
+        {
+            var text = "Unlocked abilities : \n";
+            unlockedAbilities.ForEach(i=>text += $"|{i.Name}| {i.Description}\n");
+            return text;
+        }
+
+        public List<Ability> getUnlockedAbilities()
+        {
             List<UnlockableClass> unlockables = gameObject.GetComponentsInChildren<UnlockableClass>().ToList();
             unlockables.ForEach(i =>
             {
@@ -30,18 +47,8 @@ namespace Assets.Resources.Scripts.Menu.Unlockables
                     unlockedAbilities.Add(ability);
                 }
             });
-        }
 
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.X)) Debug.Log(unlockedAbilitiesToString());
-        }
-
-        string unlockedAbilitiesToString()
-        {
-            var text = "Unlocked abilities : \n";
-            unlockedAbilities.ForEach(i=>text += $"|{i.Name}| {i.Description}\n");
-            return text;
+            return unlockedAbilities;
         }
     }
 }

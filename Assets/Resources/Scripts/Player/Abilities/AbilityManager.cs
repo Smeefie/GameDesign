@@ -111,10 +111,33 @@ public class AbilityManager : MonoBehaviour
         return abilities.Single(i => i.keycode == keycode).ability;
     }
 
+    internal int getAbilityCount()
+    {
+        return abilities.Count;
+    }
+
     protected void logCast(Ability abil)
     {
         var stats = gameObject.GetComponent<StatisticManager>();
         if (!stats.abilityData.Exists(i => i.ability.Name == abil.Name)) stats.abilityData.Add(new AbilityDataModel() { ability = abil });
         stats.abilityData.Find(i => i.ability.Name == abil.Name).used++;
+    }
+
+    internal void unequipAbility(Ability ability)
+    {
+        abilities.Remove(abilities.Single(i => i.ability.Name == ability.Name));
+    }
+
+    public bool isEquiped(Ability ability)
+    {
+        return abilities.Exists(i=>i.ability == ability);
+    }
+
+    internal IEnumerable<KeyCode> getKeycodesInUse()
+    {
+        foreach (var abilityslot in abilities)
+        {
+            yield return abilityslot.keycode;
+        }
     }
 }

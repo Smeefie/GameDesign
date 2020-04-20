@@ -22,6 +22,5 @@ namespace Assets.Resources.Scripts.Requirement
         public List<RequirementObject> satisfyBeforehand;
         public abstract bool isSatisfied(runtimeStatistics stats);
         public abstract float completionPercentage(runtimeStatistics stats);
-
     }
 }
