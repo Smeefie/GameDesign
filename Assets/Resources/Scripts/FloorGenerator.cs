@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using MyBox;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,10 @@ public class FloorGenerator : MonoBehaviour
     public int VerticalRooms = 2;
     public int RoomWidth = 26;
     public int RoomHeight = 26;
+    public bool useRandomSeed = true;
+
+    [ConditionalField("useRandomSeed", true)]
+    public int customSeed;
 
     private RoomGenerator roomGenerator;
     void Start()
@@ -33,7 +38,10 @@ public class FloorGenerator : MonoBehaviour
         {
             for (int y = 0; y < ver; y++)
             {
-                roomGenerator.GenerateRoom(x * width, y * height, width, height);
+                if(useRandomSeed)
+                    roomGenerator.GenerateRoom(x * width, y * height, width, height, -1);
+                else
+                    roomGenerator.GenerateRoom(x * width, y * height, width, height, customSeed + x + y);
             }
         }
     }
