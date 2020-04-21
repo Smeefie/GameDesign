@@ -7,25 +7,35 @@ using UnityEngine;
 public class MenuController : MonoBehaviour
 {
     public UnlockManager unlockManager;
-    private bool isOpen;
+    public SkillMenu skillMenu;
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.U)) openUnlockManager();
+        if(Input.GetKeyDown(KeyCode.L)) openSkillMenu();
     }
 
     void openUnlockManager()
     {
-        if (isOpen)
+        if (GetComponentInChildren<UnlockManager>() != null)
         {
-            isOpen = false;
             Destroy(GetComponentInChildren<UnlockManager>().gameObject);
         }
         else
         {
-            isOpen = true;
             Instantiate(unlockManager, this.transform);
         }
-        
+    }
+
+    void openSkillMenu()
+    {
+        if (GetComponentInChildren<SkillMenu>() != null)
+        {
+            Destroy(GetComponentInChildren<SkillMenu>().gameObject);
+        }
+        else
+        {
+            Instantiate(skillMenu, this.transform);
+        }
     }
 }
