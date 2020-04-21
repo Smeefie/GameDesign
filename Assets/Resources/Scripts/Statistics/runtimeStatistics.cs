@@ -11,12 +11,10 @@ namespace Assets.Resources.Scripts.Statistics
     public class runtimeStatistics : ScriptableObject
     {
         public int CrabsKilled { get; set; } = 0;
-        public int MeleeKills { get; set; } = 0;
 
         public void Clear()
         {
             CrabsKilled = 0;
-            MeleeKills = 0;
         }
     }
 }

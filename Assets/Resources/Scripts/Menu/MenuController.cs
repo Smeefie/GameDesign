@@ -9,6 +9,9 @@ public class MenuController : MonoBehaviour
     public UnlockManager unlockManager;
     public SkillMenu skillMenu;
 
+
+    public Transform Player;
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.U)) openUnlockManager();
@@ -23,7 +26,8 @@ public class MenuController : MonoBehaviour
         }
         else
         {
-            Instantiate(unlockManager, this.transform);
+            var item = Instantiate(unlockManager, this.transform);
+            item.player = Player;
         }
     }
 
@@ -35,7 +39,8 @@ public class MenuController : MonoBehaviour
         }
         else
         {
-            Instantiate(skillMenu, this.transform);
+            var item = Instantiate(skillMenu, this.transform);
+            item.player = Player;
         }
     }
 }

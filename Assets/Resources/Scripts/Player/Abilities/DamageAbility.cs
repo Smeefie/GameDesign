@@ -38,6 +38,7 @@ namespace Assets.Resources.Scripts.Player.Abilities
                 dot.Owner = user.gameObject;
                 dot.damage = DoT;
 
+                stats.abilityData.Find(i => i.ability.Name == Name).hit++;
                 var death = enemy.GetComponent<Death>();
                 if (death.isDead) logKill(stats,death);
             }

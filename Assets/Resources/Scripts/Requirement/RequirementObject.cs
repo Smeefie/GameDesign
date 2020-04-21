@@ -20,7 +20,7 @@ namespace Assets.Resources.Scripts.Requirement
 
         public List<Requirement> requirements;
         public List<RequirementObject> satisfyBeforehand;
-        public abstract bool isSatisfied(runtimeStatistics stats);
-        public abstract float completionPercentage(runtimeStatistics stats);
+        public abstract bool isSatisfied(StatisticManager stats);
+        public abstract float completionPercentage(StatisticManager stats);
     }
 }
