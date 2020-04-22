@@ -109,10 +109,9 @@ namespace Assets.Resources.Scripts.Player.Abilities
             var error = transform.parent.Find("Error").GetComponent<Text>();
             var abilityManager = GetComponentInParent<SkillMenu>().player.GetComponent<AbilityManager>();
 
-            var abilitiesInUse = abilityManager.getAbilityCount();
             if(abilityManager.getAbilityCount() >= 4) error.text = "Four abilities are currently equiped, unequip one to add another.";
             List<KeyCode> keycodes = new List<KeyCode>()
-            {KeyCode.Q, KeyCode.E, KeyCode.R, KeyCode.F};
+            {KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4};
             List<KeyCode> inUse = abilityManager.getKeycodesInUse().ToList();
 
             abilityManager.AddAbility(keycodes.Except(inUse).First(), ability);
