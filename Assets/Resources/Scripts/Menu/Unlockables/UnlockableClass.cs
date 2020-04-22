@@ -38,12 +38,12 @@ namespace Assets.Resources.Scripts.Menu.Unlockables
             Destroy(gameObject.transform.Find(PopupwindowName).gameObject);
         }
 
-        public override void CheckCondition(runtimeStatistics stats)
+        public override void CheckCondition(StatisticManager stats)
         {
             if(playerClass.requirement.isSatisfied(stats)) Unlock();
         }
 
-        public void SetProgression(runtimeStatistics stats)
+        public void SetProgression(StatisticManager stats)
         {
             progression = new List<(Ability, float)>();
             foreach (var ability in playerClass.activeAbilities.Concat(playerClass.PassiveAbilities))

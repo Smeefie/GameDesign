@@ -23,7 +23,7 @@ namespace Assets.Resources.Scripts.Menu.Unlockables
           gameObject.transform.Find("Locked").gameObject.SetActive(!Locked);
       }
 
-      public abstract void CheckCondition(runtimeStatistics stats);
+      public abstract void CheckCondition(StatisticManager stats);
 
       public bool isLocked()
       {

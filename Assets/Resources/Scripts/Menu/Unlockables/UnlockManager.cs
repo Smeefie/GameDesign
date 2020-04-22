@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Resources.Scripts.Statistics;
@@ -8,7 +9,7 @@ namespace Assets.Resources.Scripts.Menu.Unlockables
 {
     public class UnlockManager : MonoBehaviour
     {
-        [SerializeField] private runtimeStatistics runtimeStatistics;
+        [NonSerialized] public Transform player;
         private List<Ability> unlockedAbilities;
 
         void Start()
@@ -30,11 +31,13 @@ namespace Assets.Resources.Scripts.Menu.Unlockables
 
         public List<Ability> getUnlockedAbilities()
         {
+
+            var stats = player.GetComponent<StatisticManager>();
             List<UnlockableClass> unlockables = gameObject.GetComponentsInChildren<UnlockableClass>().ToList();
             unlockables.ForEach(i =>
             {
-                i.CheckCondition(runtimeStatistics);
-                i.SetProgression(runtimeStatistics);
+                i.CheckCondition(stats);
+                i.SetProgression(stats);
             });
 
             unlockedAbilities = new List<Ability>();

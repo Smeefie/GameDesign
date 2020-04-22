@@ -28094,26 +28094,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1030660656041330705, guid: 1050c600ffb579c499a56aad5f08eb68,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 263
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030660656041330705, guid: 1050c600ffb579c499a56aad5f08eb68,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -302.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030660656041330705, guid: 1050c600ffb579c499a56aad5f08eb68,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.79
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030660656041330705, guid: 1050c600ffb579c499a56aad5f08eb68,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.27
-      objectReference: {fileID: 0}
+    - target: {fileID: 1514629692, guid: 1050c600ffb579c499a56aad5f08eb68, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 755961038}
     - target: {fileID: 1295960758958049709, guid: 1050c600ffb579c499a56aad5f08eb68,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28249,15 +28233,5 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 7795001418319536867, guid: 1050c600ffb579c499a56aad5f08eb68,
-        type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7886246135300085322, guid: 1050c600ffb579c499a56aad5f08eb68,
-        type: 3}
-      propertyPath: EnemyFolder
-      value: 
-      objectReference: {fileID: 520352242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1050c600ffb579c499a56aad5f08eb68, type: 3}

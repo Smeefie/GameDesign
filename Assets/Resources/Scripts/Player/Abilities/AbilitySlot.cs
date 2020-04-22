@@ -66,8 +66,7 @@ namespace Assets.Resources.Scripts.Player.Abilities
 
         void OpenProgressText()
         {
-            var stats = gameObject.GetComponentInParent<SkillMenu>().player.GetComponent<StatisticManager>()
-                .runtimeStats;
+            var stats = gameObject.GetComponentInParent<SkillMenu>().player.GetComponent<StatisticManager>();
             var progression = ability.unlockRequirement.completionPercentage(stats);
 
             var popup = Instantiate(popupWindow, this.transform);
