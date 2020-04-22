@@ -32,7 +32,7 @@ public class RoomGenerator : MonoBehaviour
 	private int borderThickness = 2;
 	private System.Random rand = new System.Random();
 
-	public void GenerateRoom(int xOffset, int yOffset, int width, int height)
+	public void GenerateRoom(int xOffset, int yOffset, int width, int height, int customSeed)
 	{
 		Vector3Int position = new Vector3Int(xOffset, yOffset, 0);
 		Vector3Int scale = new Vector3Int(width, height, 0);
@@ -40,7 +40,7 @@ public class RoomGenerator : MonoBehaviour
 		//DeleteMap();
 
 		map = new int[scale.x, scale.y];
-		RandomFillMap(scale);
+		RandomFillMap(scale, customSeed);
 
 		for (int i = 0; i < 5; i++)
 		{
@@ -93,11 +93,15 @@ public class RoomGenerator : MonoBehaviour
 		WallTilemap.ClearAllTiles();
 	}
 
-	private void RandomFillMap(Vector3Int scale)
+	private void RandomFillMap(Vector3Int scale, int customSeed)
 	{
-		if (useRandomSeed)
+		if (useRandomSeed || customSeed != -1)
 		{
 			seed = rand.Next(0, 2000).ToString();
+		}
+		else
+		{
+			seed = customSeed.ToString();
 		}
 
 		System.Random pseudoRandom = new System.Random(seed.GetHashCode());

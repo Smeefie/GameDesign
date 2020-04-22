@@ -47,3 +47,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground Assets
+    uniqueID: 2981837727
+    locked: 0
+  - name: Collidable Assets
+    uniqueID: 647525907
+    locked: 0
+  - name: Player
+    uniqueID: 2791678689
+    locked: 0
