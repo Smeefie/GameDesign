@@ -9,7 +9,13 @@ public class RenderHealthplant : MonoBehaviour
 
     [SerializeField] private Health health;
     [SerializeField] private KeyCode KeyCode;
-    [SerializeField] private float amount;
+
+    private System.Random rand;
+
+    private void Start()
+    {
+        rand = new System.Random();
+    }
 
     private void Update()
     {
@@ -17,7 +23,7 @@ public class RenderHealthplant : MonoBehaviour
         {
             if(animator.GetBool("inRange") && !animator.GetBool("dead"))
             {
-                health.IncreaseHealth(amount);
+                health.IncreaseHealth(rand.Next(25, 50));
                 animator.SetBool("dead", true);
             }
         }

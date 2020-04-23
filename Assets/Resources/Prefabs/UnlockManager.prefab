@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8181360629389628264}
   - component: {fileID: 2850907333785582684}
   - component: {fileID: 2608296543208471007}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 7604938465863382353}
   - component: {fileID: 8236942588949635041}
   - component: {fileID: 128942112699118206}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: UnlockableClass (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 8187964732898791743}
   - component: {fileID: 4916621314272435020}
   - component: {fileID: 5691958816565396651}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: UnlockableClass (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 3856056743725454572}
   - component: {fileID: 3856056743725454546}
   - component: {fileID: 3856056743725454547}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 3856056743852486235}
   - component: {fileID: 3856056743852486233}
   - component: {fileID: 3856056743852486234}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Locked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 3856056744001337684}
   - component: {fileID: 3856056744001337690}
   - component: {fileID: 3856056744001337685}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: UnlockableClass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3856056744322715565}
   - component: {fileID: 3856056744322715564}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: UnlockManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +686,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c761f1c59cb91a346b1fa9808b0eaa3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4292681646856261356, guid: 5eeee2f9ff7918a4099b9a07ae4519d6, type: 3}
 --- !u!1 &3856056745058796790
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,7 +697,7 @@ GameObject:
   - component: {fileID: 3856056745058796789}
   - component: {fileID: 3856056745058796795}
   - component: {fileID: 3856056745058796788}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,7 +774,7 @@ GameObject:
   - component: {fileID: 3856056745290986227}
   - component: {fileID: 3856056745290986225}
   - component: {fileID: 3856056745290986226}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +847,7 @@ GameObject:
   - component: {fileID: 508816287181045281}
   - component: {fileID: 8623145383210153109}
   - component: {fileID: 2220872402257203363}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,7 +924,7 @@ GameObject:
   - component: {fileID: 2826794234131202632}
   - component: {fileID: 5114215376972899277}
   - component: {fileID: 8131187863407445271}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Locked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1000,7 +999,7 @@ GameObject:
   - component: {fileID: 6805614239286026877}
   - component: {fileID: 1434608904950141661}
   - component: {fileID: 8549478548654011858}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: UnlockableClass (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1133,7 +1132,7 @@ GameObject:
   - component: {fileID: 7153380977770563050}
   - component: {fileID: 5886409499375123001}
   - component: {fileID: 4639864944311231270}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Locked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1206,7 +1205,7 @@ GameObject:
   - component: {fileID: 3566959738246033508}
   - component: {fileID: 1747638652132831657}
   - component: {fileID: 8267365282301022088}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Locked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1279,7 +1278,7 @@ GameObject:
   - component: {fileID: 8512406534005869335}
   - component: {fileID: 524408337333463029}
   - component: {fileID: 6909563431352807757}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}

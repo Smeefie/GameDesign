@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3549371518614468005}
   - component: {fileID: 5998090525677111}
   - component: {fileID: 8779262926513585631}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Error
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 2401701186333783611}
   - component: {fileID: 2401701186333783613}
   - component: {fileID: 2401701186333783610}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: SkillMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2401701186333783615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 26.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2401701187515260817}
@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ff77a944cdf2d439494313f5b1a35c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4292681646856261356, guid: 5eeee2f9ff7918a4099b9a07ae4519d6, type: 3}
 --- !u!222 &2401701186333783610
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -180,7 +179,7 @@ GameObject:
   - component: {fileID: 2401701187515260817}
   - component: {fileID: 2401701187515260831}
   - component: {fileID: 2401701187515260830}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,10 +252,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2401701186333783612}
     m_Modifications:
+    - target: {fileID: 7409372181504297277, guid: 97bcb7f6968608b4abcfc384ce618145,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409372181547994019, guid: 97bcb7f6968608b4abcfc384ce618145,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7409372181988942709, guid: 97bcb7f6968608b4abcfc384ce618145,
         type: 3}
       propertyPath: m_Name
       value: AbilitySlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409372181988942709, guid: 97bcb7f6968608b4abcfc384ce618145,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7409372181988942714, guid: 97bcb7f6968608b4abcfc384ce618145,
         type: 3}
@@ -368,6 +382,11 @@ PrefabInstance:
       propertyPath: Equiped
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7409372182994888908, guid: 97bcb7f6968608b4abcfc384ce618145,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97bcb7f6968608b4abcfc384ce618145, type: 3}
 --- !u!224 &2401701187789106942 stripped
@@ -383,10 +402,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2401701186333783612}
     m_Modifications:
+    - target: {fileID: 7409372181504297277, guid: 97bcb7f6968608b4abcfc384ce618145,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409372181547994019, guid: 97bcb7f6968608b4abcfc384ce618145,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7409372181988942709, guid: 97bcb7f6968608b4abcfc384ce618145,
         type: 3}
       propertyPath: m_Name
       value: AbilitySlot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409372181988942709, guid: 97bcb7f6968608b4abcfc384ce618145,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7409372181988942714, guid: 97bcb7f6968608b4abcfc384ce618145,
         type: 3}
@@ -499,6 +533,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d0aa8dfccbd05514ab0c45a1f59f10f9,
         type: 2}
+    - target: {fileID: 7409372182994888908, guid: 97bcb7f6968608b4abcfc384ce618145,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97bcb7f6968608b4abcfc384ce618145, type: 3}
 --- !u!224 &4511739366226433857 stripped
@@ -514,10 +553,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2401701186333783612}
     m_Modifications:
+    - target: {fileID: 7409372181504297277, guid: 97bcb7f6968608b4abcfc384ce618145,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409372181547994019, guid: 97bcb7f6968608b4abcfc384ce618145,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7409372181988942709, guid: 97bcb7f6968608b4abcfc384ce618145,
         type: 3}
       propertyPath: m_Name
       value: AbilitySlot (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409372181988942709, guid: 97bcb7f6968608b4abcfc384ce618145,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7409372181988942714, guid: 97bcb7f6968608b4abcfc384ce618145,
         type: 3}
@@ -630,6 +684,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 4dee6548320910247883525ab773f82e,
         type: 2}
+    - target: {fileID: 7409372182994888908, guid: 97bcb7f6968608b4abcfc384ce618145,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97bcb7f6968608b4abcfc384ce618145, type: 3}
 --- !u!224 &1775879129579706082 stripped
