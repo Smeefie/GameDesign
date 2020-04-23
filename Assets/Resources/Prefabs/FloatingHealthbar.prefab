@@ -259,3 +259,5 @@ MonoBehaviour:
   ToFollow: {fileID: 0}
   transitionSpeed: 1
   offset: {x: 0, y: 0.1, z: 0}
+  floatingText: {fileID: 7788314275841058118, guid: c348704cb9686904a8ae5a0936e2bcf3,
+    type: 3}

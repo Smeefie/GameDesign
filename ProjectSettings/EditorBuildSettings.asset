@@ -13,8 +13,11 @@ EditorBuildSettings:
     guid: b470afc1e3ddf4b4eb447db6ba153f90
   - enabled: 1
     path: Assets/Resources/Scenes/Demo Level.unity
-    guid: 113d5a6fd99b01f4483d39a26fd9938f
+    guid: fc183786dc6a6fe448d936f6ccac84b5
   - enabled: 1
-    path: Assets/Resources/Scenes/Character Select.unity
-    guid: fdaa3515032ad844098b4350b1fb18b9
+    path: Assets/Resources/Scenes/You died.unity
+    guid: 1ccf56d4431435241bfde7ecbedb4296
+  - enabled: 1
+    path: Assets/Resources/Scenes/You won.unity
+    guid: 35bc548e67ef2f745a94bebf8e69efb2
   m_configObjects: {}

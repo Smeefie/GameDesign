@@ -4,24 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Health))]
-public class Death : MonoBehaviour
+
+public class EnemyDeath : Death
 {
-    private Health health;
-    public bool isDead = false;
     [SerializeField] private RewardObject reward;
 
-    void Start()
+    public override void DeathAction()
     {
-        health = gameObject.GetComponent<Health>();
-
-        health.OnHealthZero += DeathAction;
-    }
-
-    void DeathAction()
-    { 
         isDead = true;
-        //TODO: die here;
     }
 
     internal void AwardKill(StatisticManager stats)

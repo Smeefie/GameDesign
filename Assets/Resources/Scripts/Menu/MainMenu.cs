@@ -12,6 +12,21 @@ public class MainMenu : MonoBehaviour
 
     public void EnterCharacterSelect()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
+}
+
+[RequireComponent(typeof(Health))]
+public abstract class Death : MonoBehaviour
+{
+    protected Health health;
+    public bool isDead = false;
+
+    void Start()
+    {
+        health = gameObject.GetComponent<Health>();
+        health.OnHealthZero += DeathAction;
+    }
+
+    public abstract void DeathAction();
 }
