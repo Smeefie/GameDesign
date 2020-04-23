@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2843388593101514690}
   - component: {fileID: 89218373579141084}
   - component: {fileID: 5915118903878552698}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RockBigPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
