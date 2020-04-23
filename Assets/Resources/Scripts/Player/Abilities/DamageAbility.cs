@@ -18,6 +18,7 @@ namespace Assets.Resources.Scripts.Player.Abilities
         public LayerMask enemyLayers;
         public int DamageDealt;
         public DamageNumbers DoT;
+        [SerializeField] private Transform animation;
 
         public float AttackRange;
         public float height;
@@ -32,6 +33,8 @@ namespace Assets.Resources.Scripts.Player.Abilities
 
             foreach (var enemy in hitEnemies)
             {
+                var anim = Instantiate(animation, enemy.transform);
+                anim.transform.position = enemy.transform.position;
                 var health = enemy.gameObject.GetComponent<Health>();
                 health.ReduceHealth(DamageDealt);
                 var dot = enemy.gameObject.AddComponent<DamageDebuff>();

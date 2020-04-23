@@ -26,5 +26,7 @@ MonoBehaviour:
     m_Bits: 512
   DamageDealt: 50
   DoT: {fileID: 11400000, guid: d495a8e8ffc124b4b886e1e13f65ebb9, type: 2}
+  animation: {fileID: 7649907415807414485, guid: 37e253ef8941d284f8488f2537a75ec0,
+    type: 3}
   AttackRange: 0.2
   height: 0.2
