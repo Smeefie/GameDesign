@@ -39,15 +39,15 @@ namespace Assets.Resources.Scripts.Player.Abilities
                 dot.damage = DoT;
 
                 stats.abilityData.Find(i => i.ability.Name == Name).hit++;
-                var death = enemy.GetComponent<Death>();
+                var death = enemy.GetComponent<EnemyDeath>();
                 if (death.isDead) logKill(stats,death);
             }
 
         }
 
-        void logKill(StatisticManager stats, Death death)
+        void logKill(StatisticManager stats, EnemyDeath enemyDeath)
         {
-            death.AwardKill(stats);
+            enemyDeath.AwardKill(stats);
             stats.abilityData.Find(i => i.ability.Name == Name).killed++;
         }
     }

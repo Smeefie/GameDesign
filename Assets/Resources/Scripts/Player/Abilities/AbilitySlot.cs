@@ -105,7 +105,15 @@ namespace Assets.Resources.Scripts.Player.Abilities
 
         void equipAbility()
         {
+           
             var error = transform.parent.Find("Error").GetComponent<Text>();
+            error.text = "";
+            if (Locked)
+            {
+                error.text = "This ability is locked";
+                return;
+            }
+
             var abilityManager = GetComponentInParent<SkillMenu>().player.GetComponent<AbilityManager>();
 
             var abilitiesInUse = abilityManager.getAbilityCount();

@@ -33,7 +33,7 @@ namespace Assets.Resources.Scripts.Player.Abilities.Buffs
                 appliedTimes++;
             }
 
-            var death = GetComponent<Death>();
+            var death = GetComponent<EnemyDeath>();
             if (death.isDead)
             {
                 logKill(stats);
@@ -44,7 +44,7 @@ namespace Assets.Resources.Scripts.Player.Abilities.Buffs
 
         void logKill(StatisticManager stats)
         {
-            var death = GetComponent<Death>();
+            var death = GetComponent<EnemyDeath>();
             death.AwardKill(stats);
             stats.abilityData.Find(i => i.ability.Name == origin.Name).killed++;
         }
